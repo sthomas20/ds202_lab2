@@ -1,0 +1,27 @@
+---
+title: "team"
+author: "Sonia Thomas" 
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Team Questions
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+str(choco)
+nrow(choco)
+
+```
+
+**Question 1:**
+1852 chocolate bars were rated.
+
+```{r}
+table(choco$Review.Date)
+barplot(table(choco$Review.Date), main = 'Reports vs Year', xlab = "Year", ylab = 'Number Reports')
+```
