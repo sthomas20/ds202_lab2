@@ -1,0 +1,38 @@
+---
+title: "individual1"
+author: "Sonia Thomas"
+date: "2/5/2020"
+output: html_document
+---
+
+---
+title: "individual1"
+author: "Sonia Thomas"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Individual Questions
+
+*Q1:*
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+hist(choco$Rating)
+
+```
+
+- **Based on the data represented by the histogram the distribution is left skewed it contains there one outlier around the rating 5. The ratings are centered around 3 and most of the ratings are between 2.5 and 3.5.**
+
+*Q2:*
+```{r}
+plot(choco$Rating, choco$Cocoa.Pct, main = 'Rating vs Cocoa Percentage')
+cor(choco$Rating, choco$Cocoa.Pct)
+
+```
+
+- **Based on the scatter plot above and the correlation between these two variables there seems to be a weak negative correlation between the percent of cocoa and the rating. Also when looking at the plots you can see that there really is no obvious relationship between the two variables that prove whether or not they depend on each other. That being said I dont think the rating recieved depends on the percent of cocoa in the chocolate. **
