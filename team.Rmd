@@ -22,7 +22,6 @@ nrow(choco)
 1,852 chocolate bars were rated.
 
 ```{r}
-table(choco$Review.Date)
 barplot(table(choco$Review.Date), main = 'Reports vs Year', xlab = "Year", ylab = 'Number Reports')
 ```
 
@@ -31,9 +30,47 @@ The number of ratings gradually increases per year up until 2015 and then in 201
 
 ```{r}
 barplot(table(choco$Review.Date), xlab = 'Year', ylab ='number of ratings', main = 'Number of Ratings per year')
+```
 
+**Question 3:**
+Shown below are the top three locations with the most ratings: U.s.A, France, and Canada, in that order. To compare the ratings across these three company locations, we created 3 subsets of the choco dataframe, one for each country, and made a histogram for each country's rating. Finally, we added the red line in each histogram, which shows the mean of each country's rating. By this metric, France has the best average rating of 3.253, but as in shown in the other two histograms, both U.S.A and Canada are very close behind France in terms of quality. All three histograms are similar, showing that there is not much difference in the overall distribution of ratings in each country.
+
+```{r}
+sort(table(choco$Company.Location), decreasing = TRUE)[1:3]
+
+USA = subset(choco, choco$Company.Location == 'U.S.A.')
+hist(USA$Rating, main = 'U.S.A. Choco Ratings Histogram', ylab= 'Frequency', xlab = 'Rating')
+abline(v=mean(USA$Rating), lwd = 3, col="red")
+
+France = subset(choco, choco$Company.Location == 'France')
+hist(France$Rating, main = 'France Choco Ratings Histogram', ylab= 'Frequency', xlab = 'Rating')
+abline(v=mean(France$Rating), lwd = 3, col="red")
+
+Canada = subset(choco, choco$Company.Location == 'Canada')
+hist(Canada$Rating, main = 'Canada Choco Ratings Histogram', ylab= 'Frequency', xlab = 'Rating')
+abline(v=mean(Canada$Rating), lwd = 3, col="red")
 
 ```
 
+**Question 4:**
+Our question is as follows: How many different (unique) bean types have been rated?
 
+**Question 5:**
+By using the "unique" funcion in R, we found that there are 41 different types of beans that were rated in this dataset.
 
+``` {r}
+numBeanType = length(unique(choco$Bean.Type))
+numBeanType
+```
+
+**Question 6:**
+
+1. Sonia wrote individual1.Rmd file, and John wrote individual2.Rmd file.
+2. Sonia created a repository called ds202_lab2, and gave John access to contribute to it.
+3. Sonia pushed her individual1.Rmd and individual1.html files to the repo.
+4. John cloned Sonia's repo onto his local computer.
+5. John pushed his individual2.Rmd and individual2.html files to the repo.
+6. Sonia started writing the team.Rmd file, but at the end of Wednesday's class we were unable to push the incomplete team.Rmd file to the repo. This was due to conflicting branches that we were able to clear up on Monday.
+7. On Monday, Sonia finished questions 1 and 2 for the team.Rmd file, and pushed it to the repo.
+8. John pulled the team.Rmd file from the repo, and finished the final questions.
+9. John is about to push the team.Rmd and team.html files to the repo.
