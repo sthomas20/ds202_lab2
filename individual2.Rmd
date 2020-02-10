@@ -1,0 +1,35 @@
+---
+title: "individual2.Rmd"
+author: "John Nownes"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab 2, Individual 2
+
+### Question 1
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+hist(choco$Rating)
+
+```
+
+1. The ratings are distributed roughly normally. There is one outlier out near the 5 rating, and the mean of the histogram is about 3. Almost all of the ratings are between 2.5 and 4.
+
+### Question 2
+```{r}
+print(cor(choco$Rating, choco$Cocoa.Pct))
+x = choco$Cocoa.Pct
+y = choco$Rating
+model = lm(y~x)
+summary(model)
+plot(x,y, xlab = 'Cocoa Percentage', ylab = 'Rating', main = 'Rating vs Cocoa Percentage')
+abline(model) #add least square line
+
+```
+
+2. Ultimately, the ratings do not depend on the cocoa percentage. This is supported in several ways. The first is that the correlation between the rating and the cocoa percentage is -.1618855. This is a weak negative correlation, meaning that there is a slightly inverse relationship between rating and cocoa percentage. The second way this is supported is by the linear model shown above. The R-squared score is only 0.02621, which like the correlation is quite low. Plotted is the raw data points with a linear least squares fitted line plotted through the points. As shown above, the fit is quite poor, and it would be misleading to say that the ratings depend on the cocoa percentage, even though there appears to be a very slight inverse relationship.

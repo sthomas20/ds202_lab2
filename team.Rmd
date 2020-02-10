@@ -19,9 +19,18 @@ nrow(choco)
 ```
 
 **Question 1:**
-1852 chocolate bars were rated.
+1,852 chocolate bars were rated.
 
 ```{r}
 table(choco$Review.Date)
 barplot(table(choco$Review.Date), main = 'Reports vs Year', xlab = "Year", ylab = 'Number Reports')
 ```
+
+**Question2:**
+
+```{r}
+barplot(table(choco$Review.Date), xlab = 'Year', ylab ='number of ratings', main = 'Number of Ratings per year')
+
+
+```
+
