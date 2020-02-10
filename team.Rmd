@@ -26,11 +26,14 @@ table(choco$Review.Date)
 barplot(table(choco$Review.Date), main = 'Reports vs Year', xlab = "Year", ylab = 'Number Reports')
 ```
 
-**Question2:**
+**Question 2:**
+The number of ratings gradually increases per year up until 2015 and then in 2016-2017 it drops back down. Specifically in 2017 it drops back down to the same number of ratings it was in 2006.
 
 ```{r}
 barplot(table(choco$Review.Date), xlab = 'Year', ylab ='number of ratings', main = 'Number of Ratings per year')
 
 
 ```
+
+
 
